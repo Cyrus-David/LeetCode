@@ -45,3 +45,23 @@
         
         return head->next;
     }
+
+///////////////////////////////////////////////////////////////////
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        ListNode* answer = new ListNode();
+        ListNode* head = answer;
+        int add, rem = 0;
+        
+        while (l1 != NULL || l2 != NULL || rem) {
+            add = (l1 ? l1->val : 0) + (l2 ? l2->val : 0) + rem;
+            rem = add / 10;
+            answer->next = new ListNode(add % 10);
+            answer = answer->next;
+            l1 = l1 ? l1->next : l1;
+            l2 = l2 ? l2->next : l2;
+        }
+        
+        return head->next;
+    }
+
+///////////////////////////////////////////////////////////////////////////
